@@ -11,11 +11,13 @@ for(var i=0;i<document.querySelectorAll(".drum").length;i++)
   document.querySelectorAll(".drum")[i].addEventListener("click",function(){
     var but=this.innerHTML;
     getTheBeat(but);
+    buttonAnimation(but);
   });
 }
   // Detecing key press
     document.addEventListener("keypress",function(event){
         getTheBeat(event.key);
+        buttonAnimation(event.key);
 
 
       });
@@ -54,4 +56,11 @@ function getTheBeat(key){
 
 
 }
+}
+function buttonAnimation(button){
+  var style=document.querySelector("."+button);
+  style.classList.add("pressed");
+  setTimeout(function(){
+      style.classList.remove("pressed");
+  },100);
 }
